@@ -78,9 +78,9 @@ docker run -it 42image:latest
 
 保存しておいたイメージ (`42image_latest.tar`) をロードします。
 
-'''
+```
 docker load < 42image_latest.tar
-'''
+```
 
 このコマンドを実行すると、`42image:latest`という名前のイメージがDockerのローカル環境に登録されます。
 インポートしたイメージを別の Dockerfile のベースイメージとして使用するには、以下のように記述します。
