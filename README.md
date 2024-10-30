@@ -38,7 +38,7 @@ docker build -t 42image:latest .
 
 `install.yml` を使用したインストールをスキップしたい場合は、以下のようにビルド引数を指定します。
 
-```
+```bash
 docker build --build-arg USE_YAML=false -t 42image:latest .
 ```
 
@@ -48,7 +48,7 @@ docker build --build-arg USE_YAML=false -t 42image:latest .
 
 ビルド済みの Docker イメージを `.tar` ファイルとして保存するには、以下のコマンドを使用します。
 
-```
+```bash
 docker save -o 42image_latest.tar 42image:latest
 ```
 
@@ -58,7 +58,7 @@ docker save -o 42image_latest.tar 42image:latest
 
 別の環境やシステムで、この保存したイメージを使用する場合、以下のコマンドでインポートします。
 
-```
+```bash
 docker load < 42image_latest.tar
 ```
 
@@ -68,7 +68,8 @@ docker load < 42image_latest.tar
 
 ビルドした Docker イメージを使用してコンテナを起動します。
 
-```
+
+```bash
 docker run -it 42image:latest
 ```
 
@@ -78,7 +79,8 @@ docker run -it 42image:latest
 
 保存しておいたイメージ (`42image_latest.tar`) をロードします。
 
-```
+
+```bash
 docker load < 42image_latest.tar
 ```
 
