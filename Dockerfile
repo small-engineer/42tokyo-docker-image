@@ -21,16 +21,14 @@ COPY ./install_script.py /install_script.py
 
 RUN chmod +x /install_script.py
 
-# Define build argument (default: true)
 ARG USE_YAML=true
 
 RUN if [ "$USE_YAML" = "true" ]; then \
       python3 /install_script.py; \
     else \
-      echo 'Skipping YAML installation'; \
+      echo 'Skipping YAML'; \
     fi
 
-# Set up C/C++ development tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
@@ -43,7 +41,6 @@ RUN apt-get update && \
     python3.10 python3.10-venv python3.10-dev python3-pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Configure GCC and Clang alternatives
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
     --slave /usr/bin/g++ g++ /usr/bin/g++-10 && \
     update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 10
