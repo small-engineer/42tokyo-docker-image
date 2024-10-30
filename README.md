@@ -30,7 +30,7 @@
 
 プロジェクトのルートディレクトリで以下のコマンドを実行します。
 
-```
+```bash
 docker build -t 42image:latest .
 ```
 
