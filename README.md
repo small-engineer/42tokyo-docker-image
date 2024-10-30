@@ -42,6 +42,14 @@ docker build -t 42image:latest .
 docker build --build-arg USE_YAML=false -t 42image:latest .
 ```
 
+## 使用方法
+
+ビルドした Docker イメージを使用してコンテナを起動します。
+
+```bash
+docker run -it 42image:latest
+```
+
 ## Docker イメージの保存とインポート
 
 ### 1. Docker イメージの書き出し
@@ -57,15 +65,6 @@ docker save -o 42image_latest.tar 42image:latest
 ### 2. 保存したイメージのインポート
 
 このコマンドを実行すると、`42image:latest` という名前でイメージがインポートされます。
-
-## 使用方法
-
-ビルドした Docker イメージを使用してコンテナを起動します。
-
-
-```bash
-docker run -it 42image:latest
-```
 
 これにより、設定済みの開発環境でシェルアクセスが可能になります。
 
