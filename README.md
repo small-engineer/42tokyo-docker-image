@@ -85,11 +85,14 @@ docker load < 42image_latest.tar
 このコマンドを実行すると、`42image:latest`という名前のイメージがDockerのローカル環境に登録されます。
 インポートしたイメージを別の Dockerfile のベースイメージとして使用するには、以下のように記述します。
 
-```
+```Dockerfile
 FROM 42image:latest
 
-# 以下に追加の設定やコマンドを記述
-RUN echo "ベースイメージが正しく設定されました"
+COPY ./src /src
+
+WORKDIR /src
+
+CMD ["make", "test"]
 ```
 
 
