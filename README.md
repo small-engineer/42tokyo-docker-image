@@ -42,6 +42,28 @@ docker build -t 42image:latest .
 docker build --build-arg USE_YAML=false -t 42image:latest .
 ```
 
+## Docker イメージの保存とインポート
+
+### 1. Docker イメージの保存
+
+ビルド済みの Docker イメージを `.tar` ファイルとして保存するには、以下のコマンドを使用します。
+
+```
+docker save -o 42image_latest.tar 42image:latest
+```
+
+これで、`42image_latest.tar` というファイルにイメージが保存されます。
+
+### 2. 保存したイメージのインポート
+
+別の環境やシステムで、この保存したイメージを使用する場合、以下のコマンドでインポートします。
+
+```
+docker load < 42image_latest.tar
+```
+
+このコマンドを実行すると、`42image:latest` という名前でイメージがインポートされます。
+
 ## 使用方法
 
 ビルドした Docker イメージを使用してコンテナを起動します。
@@ -51,6 +73,18 @@ docker run -it 42image:latest
 ```
 
 これにより、設定済みの開発環境でシェルアクセスが可能になります。
+
+## ベースイメージとしての利用
+
+インポートしたイメージを別の Dockerfile のベースイメージとして使用するには、以下のように記述します。
+
+```
+FROM 42image:latest
+
+# 以下に追加の設定やコマンドを記述
+RUN echo "ベースイメージが正しく設定されました"
+```
+
 
 ## テスト方法
 
