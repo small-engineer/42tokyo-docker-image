@@ -53,4 +53,3 @@ RUN ln -sf /usr/bin/python3.10 /usr/bin/python
 RUN gcc -v && g++ -v && clang -v && python --version
 
 CMD ["/bin/bash"]
-

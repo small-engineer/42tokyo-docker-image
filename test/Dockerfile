@@ -1,11 +1,8 @@
 FROM 42image:latest
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    TZ=Etc/UTC
+COPY ./src /src
 
-COPY ./tests /tests
-
-WORKDIR /tests
+WORKDIR /src
 
 RUN make --version && \
     cmake --version && \
